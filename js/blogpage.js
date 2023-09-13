@@ -30,6 +30,7 @@ async function updatePageContent() {
     if (result) {
         document.getElementById('blog-image-container').innerHTML = `<img src="${result.image}" alt="BlogImg" class="img-fluid img-responsive">`;
         document.getElementById('blog-title-container').innerHTML = result.title;
+        document.title = `Osun Startup Hub | ${result.title}`;
         document.getElementById('blog-text-container').innerHTML = result.content;
     }
 }
