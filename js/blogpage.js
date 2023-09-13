@@ -18,7 +18,13 @@ var singlePostId = localStorage.getItem("single-post-id", singlePostId);
 
 
 async function updatePageContent() {
-    const url = `https://osunstartuphubapi.pythonanywhere.com/api/blog/detail/${singlePostId}`;
+    console.log("URL ", window.location.href);
+    const page_url = window.location.href;
+    var urlObj = new URL(page_url);
+    var params = urlObj.searchParams;
+    var id = params.get("id");
+
+    const url = `https://osunstartuphubapi.pythonanywhere.com/api/blog/detail/${id}`;
     const result = await fetchData(url);
 
     if (result) {
